@@ -3,6 +3,7 @@ package com.codepath.apps.restclienttemplate.models
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -36,6 +37,8 @@ class TweetsAdapter(val tweets: ArrayList<Tweet>): RecyclerView.Adapter<TweetsAd
             .load(tweet.user?.publicImageUrl)
             .transform(CenterInside(), RoundedCorners(24))
             .into(holder.ivProfileImage)
+
+        holder.itemView.animation = AnimationUtils.loadAnimation(holder.itemView.context, R.anim.tweetscroll)
 
     }
 
